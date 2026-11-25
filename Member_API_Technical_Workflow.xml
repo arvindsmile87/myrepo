@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="page1">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" page="1" pageWidth="1400" pageHeight="2000">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;Member FHIR API | Technical workflow&lt;/b&gt;&lt;br&gt;Logical architecture — Client Setup and Enrollment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="340" y="20" width="720" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="src" value="&lt;b&gt;Admin Console / API client&lt;/b&gt;&lt;br&gt;FHIR R4 collection Bundle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="490" y="110" width="420" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="kong" value="&lt;b&gt;Kong API Gateway&lt;/b&gt;&lt;br&gt;API entry point" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="490" y="220" width="420" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="api" value="&lt;b&gt;POST /fhir/member&lt;/b&gt;&lt;br&gt;Tenant ID header • request context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="490" y="320" width="420" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="gate" value="&lt;b&gt;Pre-processing gate&lt;/b&gt;&lt;br&gt;Content-Type, Bundle structure/type, workflow tag&lt;br&gt;FHIR Validation Service: Coupe IG conformance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="490" y="430" width="420" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="route" value="&lt;b&gt;FHIR Router&lt;/b&gt;&lt;br&gt;Bundle.meta.tag.code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="490" y="575" width="420" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="cs" value="&lt;b&gt;Client Setup | client-setup&lt;/b&gt;&lt;br&gt;Organization, OrganizationAffiliation, InsurancePlan&lt;br&gt;Workflow validation and relationships" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="80" y="700" width="480" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="en" value="&lt;b&gt;Enrollment | enrollment&lt;/b&gt;&lt;br&gt;Patient and Coverage&lt;br&gt;Bundle and field-level validation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="840" y="700" width="480" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ci" value="&lt;b&gt;Client Setup identity resolution&lt;/b&gt;&lt;br&gt;Resolve canonical IDs and create/update decisions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="80" y="850" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ei" value="&lt;b&gt;Enrollment identity enrichment&lt;/b&gt;&lt;br&gt;Identifier resolver • coupeId • resource.id • POST/PUT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="840" y="850" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="plan" value="&lt;b&gt;InsurancePlan lookup&lt;/b&gt;&lt;br&gt;Policyholder, group, division, coverage start date&lt;br&gt;Existing Client Setup is required" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="840" y="980" width="480" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cp" value="&lt;b&gt;Client Setup resource preparation&lt;/b&gt;&lt;br&gt;Workflow-specific validation and references" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1100" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ep" value="&lt;b&gt;Coverage processing and reference validation&lt;/b&gt;&lt;br&gt;Coverage lifecycle rules; beneficiary, policyholder, payor, plan references&lt;br&gt;Plan enrichment not yet implemented" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="840" y="1120" width="480" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="id" value="&lt;b&gt;Identity Manager / DynamoDB&lt;/b&gt;&lt;br&gt;Identity registry; separate enrollment mapping index" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="580" y="850" width="240" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="prep" value="&lt;b&gt;Persistence preparation&lt;/b&gt;&lt;br&gt;Enrollment: stampPersistProfiles() and transaction Bundle&lt;br&gt;Client Setup: follow its documented pipeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="490" y="1300" width="420" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="proxy" value="&lt;b&gt;FHIR Proxy Service&lt;/b&gt;&lt;br&gt;Persistence profile, identity-method and HAPI validation&lt;br&gt;Signed HealthLake request" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="490" y="1440" width="420" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="store" value="&lt;b&gt;AWS HealthLake&lt;/b&gt;&lt;br&gt;Tenant-specific FHIR R4 datastore" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="490" y="1580" width="420" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="index" value="&lt;b&gt;Client Setup mapping index&lt;/b&gt;&lt;br&gt;DynamoDB update after successful processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1580" width="350" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="resp" value="&lt;b&gt;Return processing response&lt;/b&gt;&lt;br&gt;Success or propagated error to API caller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="490" y="1710" width="420" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="err" value="&lt;b&gt;Error response&lt;/b&gt;&lt;br&gt;400 / 415 / 422 / 503 / 500&lt;br&gt;As applicable to failed stage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="430" width="320" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="read" value="&lt;b&gt;Authorised GET /fhir/member/{resource}/{fhirId}&lt;/b&gt;&lt;br&gt;Organization, InsurancePlan, Patient, Coverage&lt;br&gt;Read path and tenant authorisation to verify" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="980" y="1460" width="340" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="&lt;b&gt;Review with Shiva&lt;/b&gt;&lt;br&gt;Exact Client Setup sequence, Coverage lifecycle ordering, tenant authorisation, read implementation and audit controls. PostgreSQL / Nected changes not shown as implemented." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;spacing=8;fontColor=#202b3a;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1840" width="1240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="src" target="kong">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="kong" target="api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="api" target="gate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="Valid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="gate" target="route">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="Invalid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="gate" target="err">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="client-setup" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="route" target="cs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="enrollment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="route" target="en">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="cs" target="ci">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="en" target="ei">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="Identity lookup" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;dashed=1;" edge="1" parent="1" source="ci" target="id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="Identity lookup" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;dashed=1;" edge="1" parent="1" source="ei" target="id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="ci" target="cp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="ei" target="plan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="Match" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="plan" target="ep">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="cp" target="prep">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="ep" target="prep">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="prep" target="proxy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="proxy" target="store">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;" edge="1" parent="1" source="store" target="resp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" value="Client Setup only" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;dashed=1;" edge="1" parent="1" source="store" target="index">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" value="Existing plan lookup (logical)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;dashed=1;" edge="1" parent="1" source="store" target="plan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" value="Logical read dependency" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#53657a;dashed=1;" edge="1" parent="1" source="read" target="store">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
